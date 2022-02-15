@@ -1,0 +1,18 @@
+{
+  "name": "hello-jison",
+  "version": "1.0.0",
+  "description": "* See section [Análisis Sintáctico Ascendente en JavaScript](http://crguezl.github.io/pl-html/node43.html) * The example working at  [http://crguezl.github.io/jison-minus/](http://crguezl.github.io/jison-minus/)",
+  "main": "main.js",
+  "scripts": {
+    "test": "./use_minus.js",
+    "compile":  "jison minus.jison minus.l -o minus.js",
+    "debug": "jison minus.jison minus.l -o minus.js --debug",
+    "dfa":   "bison -v minus.jison; rm -f minus.tab.jison"
+  },
+  "keywords": [],
+  "author": "Casiano Rodriguez Leon <crguezl@ull.edu.es> (https://crguezl.github.io/)",
+  "license": "ISC",
+  "dependencies": {
+    "jison": "^0.4.18"
+  }
+}
