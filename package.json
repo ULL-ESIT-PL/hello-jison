@@ -4,7 +4,7 @@
   "description": "* See section [Análisis Sintáctico Ascendente en JavaScript](http://crguezl.github.io/pl-html/node43.html) * The example working at  [http://crguezl.github.io/jison-minus/](http://crguezl.github.io/jison-minus/)",
   "main": "main.js",
   "scripts": {
-    "test": "./use_minus.js",
+    "test": "npm run compile; ./use_minus.js",
     "compile":  "jison minus.jison minus.l -o minus.js",
     "debug": "jison minus.jison minus.l -o minus.js --debug",
     "dfa":   "bison -v minus.jison; rm -f minus.tab.jison"
