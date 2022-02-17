@@ -1,5 +1,39 @@
 # Compiler Basics
 
+This repo contains two examples:
+
+* The first one is a simple interpreter for infix arithmetic expressions with the minus operator only
+  * See files `minus.jison`, `minus.l` and  `use_minus.js`
+* The second is a translator from infix arithmetic expressions to JavaScript
+  * `minus-ast.jison` builds a Espree compatible AST using `minus.l` and the helpers in `ast-build.js`
+* The `ast-*.json`files contain examples of Espree ast2js
+  
+## package.json scripts
+
+```
+
+➜  hello-jison git:(master) ✗ npm run
+Lifecycle scripts included in hello-jison@1.0.0:
+  test
+    npm run tojs; node salida.js
+
+available via `npm run-script`:
+  test-simple
+    npm run build; ./use_minus.js
+  tojs
+    npm run build-ast; ./ast2js.js > salida.js; cat salida.js
+  build-ast
+    npm run compile-ast; ./use_minus.js > ast.json; cat ast.json
+  build
+    jison minus.jison minus.l -o minus.js
+  debug
+    jison minus.jison minus.l -o minus.js --debug
+  dfa
+    bison -v minus.jison; rm -f minus.tab.jison
+  compile-ast
+    jison minus-ast.jison minus.l -o minus.js
+```
+
 ## Simple grammar to illustrate Jison
 
 Install the dependencies:
