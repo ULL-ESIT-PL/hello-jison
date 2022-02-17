@@ -8,7 +8,7 @@ This repo contains two examples:
   * `minus-ast.jison` builds a Espree compatible AST using `minus.l` and the helpers in `ast-build.js`
 * The `ast-*.json`files contain examples of Espree ast2js
   
-## package.json scripts
+## package.json scripts to run the examples
 
 ```
 
@@ -34,7 +34,7 @@ available via `npm run-script`:
     jison minus-ast.jison minus.l -o minus.js
 ```
 
-## Simple grammar to illustrate Jison
+## First Example. Simple interpreter
 
 Install the dependencies:
 
@@ -57,7 +57,7 @@ Usage:
 0
 ```
 
-## Example of a Simple Translator from Infix minus expressions to JavaScript
+## Second Example. A Simple Translator from Infix minus expressions to JavaScript
 
 ```
 ➜  hello-jison git:(master) ✗ npm run test       
