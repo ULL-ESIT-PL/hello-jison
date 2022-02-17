@@ -1,38 +1,46 @@
 %{
 
-function buildRoot(child) {
-  return `
-{
-    "type": "Program",
-    "body": [
-      {
-        "type": "ExpressionStatement",
-        "expression": ${child}
+let buildRoot = child => ({
+  "type": "Program",
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "CallExpression",
+        "callee": {
+          "type": "MemberExpression",
+          "object": {
+            "type": "Identifier",
+            "name": "console"
+          },
+          "property": {
+            "type": "Identifier",
+            "name": "log"
+          },
+          "computed": false
+        },
+        "arguments": [ child ]
       }
-    ],
-    "sourceType": "script"
-}
-`;
-}
+    }
+  ],
+  "sourceType": "script"
+})
 
 function buildLiteral(value) {
-  return `
-{
+  return {
     "type": "Literal",
-    "value": ${value},
-    "raw": "${value}"
-}`
+    "value": Number(value),
+    "raw": value
+  }
 } 
 
 function  buildBinaryExpression(left, right) {
-  return `
-        {
+  return {
           "type": "BinaryExpression",
-          "left": ${left},
+          "left": left,
           "operator": "-",
-          "right": ${right}
+          "right": right
         }
-  `
 }
 
 %}
@@ -43,9 +51,6 @@ es: e { return buildRoot($1); }
 ;
 
 e: 
-    e '-' e.     
-    { 
-      $$ = buildBinaryExpression($1, $3)
-    }
-  | N            { $$ = buildLiteral($1); }
+    e '-' e  { $$ = buildBinaryExpression($1, $3)  }
+  | N        { $$ = buildLiteral($1); }
 ;

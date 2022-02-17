@@ -4,10 +4,14 @@
   "description": "* See section [Análisis Sintáctico Ascendente en JavaScript](http://crguezl.github.io/pl-html/node43.html) * The example working at  [http://crguezl.github.io/jison-minus/](http://crguezl.github.io/jison-minus/)",
   "main": "main.js",
   "scripts": {
-    "test": "npm run compile; ./use_minus.js",
-    "compile":  "jison minus.jison minus.l -o minus.js",
+    "test": "npm run tojs; node salida.js",
+    "test-simple": "npm run build; ./use_minus.js",
+    "tojs": "npm run build-ast; ./ast2js.js > salida.js; cat salida.js",
+    "build-ast": "npm run compile-ast; ./use_minus.js > ast.json; cat ast.json",
+    "build":  "jison minus.jison minus.l -o minus.js",
     "debug": "jison minus.jison minus.l -o minus.js --debug",
-    "dfa":   "bison -v minus.jison; rm -f minus.tab.jison"
+    "dfa":   "bison -v minus.jison; rm -f minus.tab.jison",
+    "compile-ast": "jison minus-ast.jison minus.l -o minus.js"
   },
   "keywords": [],
   "author": "Casiano Rodriguez Leon <crguezl@ull.edu.es> (https://crguezl.github.io/)",
