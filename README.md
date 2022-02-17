@@ -23,7 +23,7 @@ Usage:
 0
 ```
 
-## Translator from Infix minus expressions to JavaScript
+## Example of a Simple Translator from Infix minus expressions to JavaScript
 
 ```
 ➜  hello-jison git:(master) ✗ npm run test       
