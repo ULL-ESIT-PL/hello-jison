@@ -130,3 +130,12 @@ Usage:
 console.log(2 - 1 - 1);
 0
 ```
+
+## References
+
+* [Repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk)
+* [crguezl/hello-jison](https://github.com/crguezl/hello-jison)
+* [Espree](https://github.com/eslint/espree)
+  * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
+* <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
+* [idgrep.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.js)
