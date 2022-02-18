@@ -6,7 +6,8 @@ This repo contains two examples:
   * See files `minus.jison`, `minus.l` and  `use_minus.js`
 * The second is a translator from infix arithmetic expressions to JavaScript
   * `minus-ast.jison` builds a Espree compatible AST using `minus.l` and the helpers in `ast-build.js`
-  * The lexical analyzer `minus.l` is reused
+  * Check <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a> to explore the shape of the ASTs
+  * The lexical analyzer `minus.l` is used by both examples
 * The `ast-*.json` files contain examples of Espree ASTs
   
 ## package.json scripts to run the examples
