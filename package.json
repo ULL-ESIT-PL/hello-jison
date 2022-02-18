@@ -8,15 +8,16 @@
     "test-simple": "npm run build; ./use_minus.js",
     "tojs": "npm run build-ast; ./ast2js.js > salida.js; cat salida.js",
     "build-ast": "npm run compile-ast; ./use_minus.js > ast.json; cat ast.json",
-    "build":  "jison minus.jison minus.l -o minus.js",
+    "build": "jison minus.jison minus.l -o minus.js",
     "debug": "jison minus.jison minus.l -o minus.js --debug",
-    "dfa":   "bison -v minus.jison; rm -f minus.tab.jison",
+    "dfa": "bison -v minus.jison; rm -f minus.tab.jison",
     "compile-ast": "jison minus-ast.jison minus.l -o minus.js"
   },
   "keywords": [],
   "author": "Casiano Rodriguez Leon <crguezl@ull.edu.es> (https://crguezl.github.io/)",
   "license": "ISC",
   "dependencies": {
+    "espree": "^9.3.1",
     "jison": "^0.4.18"
   }
 }
