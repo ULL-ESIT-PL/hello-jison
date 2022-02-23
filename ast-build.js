@@ -34,11 +34,11 @@ function buildLiteral(value) {
   };
 }
 
-function buildBinaryExpression(left, right) {
+function buildBinaryExpression(left, op, right) {
   return {
     type: "BinaryExpression",
     left: left,
-    operator: "-",
+    operator: op,
     right: right,
   };
 }
