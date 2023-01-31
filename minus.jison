@@ -1,5 +1,5 @@
 %%
-es: e { return $1;}
+es: e { return $1; }
 ;
 
 e: 
