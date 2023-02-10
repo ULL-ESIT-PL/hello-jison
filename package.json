@@ -11,7 +11,6 @@
     "build": "jison minus/minus.jison minus/minus.l -o minus/minus.js",
     "loc": "jison location/minus-error-management.jison location/minus-error-management.l -o location/minus.js",
     "debug": "jison minus/minus.jison minus/minus.l -o minus/minus.js --debug",
-    "dfa": "bison -v minus.jison; rm -f minus.tab.jison",
     "prec": "jison prec/uminus.jison prec/minus.l -o prec/uminus.js; prec/use-prec.js",
     "compile-ast": "jison ast/minus-ast.jison ast/minus-ast.l -o ast/minus.js",
     "clean": "rm -f ast/ast.json ast/salida.js ast/minus.js location/minus.js"
