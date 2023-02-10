@@ -15,7 +15,7 @@ This repo contains four examples:
 * The example in folder `prec` illustrates the use of the `%prec` directive to resolve conflicts
   * See files `prec.jison`, `prec.l` and  `use_prec.js`
   * The `prec-*.json` files contain examples of Espree ASTs
-  * 
+  
 ## package.json scripts to run the examples
 
 ```
@@ -60,5 +60,6 @@ npm i
 * [Espree](https://github.com/eslint/espree)
   * [Options for parse and tokenize methods](https://github.com/eslint/espree#options)
 * <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a>
+* <a href="https://nolanlawson.github.io/jison-debugger/" target="_blank">Jison Playground</a>
 * [idgrep.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.js)
 * [Introducción a los Compiladores](https://ull-esit-gradoii-pl.github.io/temas/introduccion-a-pl/esprima.html) con Jison y Espree
