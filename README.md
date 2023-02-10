@@ -1,136 +1,56 @@
 # Compiler Basics
 
-This repo contains two examples:
+This repo contains four examples:
 
-* The first one is a simple interpreter for infix arithmetic expressions with the minus operator only
+* The first one in folder`minus` is a simple interpreter for infix arithmetic expressions with the minus operator only
   * See files `minus.jison`, `minus.l` and  `use_minus.js`
-* The second is a translator from infix arithmetic expressions to JavaScript
+* The example in folder `location`  shows how to access to the location of tokens, how to pass information from outside to an action, how to deal with lexical errors and a few tricks to improve error messages
+  * See files `minus-error-management.jison`, `minus-error-management.l` and  `main.js`
+  * The `err.js` file contains the error message function
+* The example in folder `ast` is a translator from infix arithmetic expressions to JavaScript
   * `minus-ast.jison` builds a Espree compatible AST using `minus.l` and the helpers in `ast-build.js`
   * Check <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a> to explore the shape of the ASTs
   * The lexical analyzer `minus.l` is used by both examples
 * The `ast-*.json` files contain examples of Espree ASTs
-  
+* The example in folder `prec` illustrates the use of the `%prec` directive to resolve conflicts
+  * See files `prec.jison`, `prec.l` and  `use_prec.js`
+  * The `prec-*.json` files contain examples of Espree ASTs
+  * 
 ## package.json scripts to run the examples
 
 ```
-➜  hello-jison git:(master) ✗ npm run
+hello-jison git:(master) npm run
 Lifecycle scripts included in hello-jison@1.0.0:
   test
-    npm run tojs; node salida.js
+    npm run tojs; node ast/salida.js
 
 available via `npm run-script`:
   test-simple
-    npm run build; ./use_minus.js
+    npm run build; ./minus/use_minus.js
   tojs
-    npm run build-ast; ./ast2js.js > salida.js; cat salida.js
+    npm run build-ast; ./ast/ast2js.js | tee ast/salida.js
   build-ast
-    npm run compile-ast; ./use_minus.js > ast.json; cat ast.json
+    npm run compile-ast; ./ast/use_minus.js > ast/ast.json; cat ast/ast.json
   build
-    jison minus.jison minus.l -o minus.js
+    jison minus/minus.jison minus/minus.l -o minus/minus.js
   loc
     jison location/minus-error-management.jison location/minus-error-management.l -o location/minus.js
   debug
-    jison minus.jison minus.l -o minus.js --debug
+    jison minus/minus.jison minus/minus.l -o minus/minus.js --debug
   dfa
     bison -v minus.jison; rm -f minus.tab.jison
+  prec
+    jison prec/uminus.jison prec/minus.l -o prec/uminus.js; prec/use-prec.js
   compile-ast
-    jison minus-ast.jison minus.l -o minus.js
+    jison ast/minus-ast.jison ast/minus-ast.l -o ast/minus.js
+  clean
+    rm -f ast/ast.json ast/salida.js ast/minus.js location/minus.js
 ```
 
-## First Example. Simple interpreter
-
-Install the dependencies:
+## Install the dependencies:
 
 ```
 npm i
-```
-
-Usage:
-
-```
-➜  hello-jison git:(master) ✗ npm run test-simple
-
-> hello-jison@1.0.0 test-simple
-> npm run build; ./use_minus.js
-
-
-> hello-jison@1.0.0 build
-> jison minus.jison minus.l -o minus.js
-
-0
-```
-
-## Second Example. A Simple Translator from Infix minus expressions to JavaScript
-
-```
-➜  hello-jison git:(master) ✗ npm run test       
-
-> hello-jison@1.0.0 test
-> npm run tojs; node salida.js
-
-
-> hello-jison@1.0.0 tojs
-> npm run build-ast; ./ast2js.js > salida.js; cat salida.js
-
-
-> hello-jison@1.0.0 build-ast
-> npm run compile-ast; ./use_minus.js > ast.json; cat ast.json
-
-
-> hello-jison@1.0.0 compile-ast
-> jison minus-ast.jison minus.l -o minus.js
-
-{
-  "type": "Program",
-  "body": [
-    {
-      "type": "ExpressionStatement",
-      "expression": {
-        "type": "CallExpression",
-        "callee": {
-          "type": "MemberExpression",
-          "object": {
-            "type": "Identifier",
-            "name": "console"
-          },
-          "property": {
-            "type": "Identifier",
-            "name": "log"
-          },
-          "computed": false
-        },
-        "arguments": [
-          {
-            "type": "BinaryExpression",
-            "left": {
-              "type": "BinaryExpression",
-              "left": {
-                "type": "Literal",
-                "value": 2,
-                "raw": "2"
-              },
-              "operator": "-",
-              "right": {
-                "type": "Literal",
-                "value": 1,
-                "raw": "1"
-              }
-            },
-            "operator": "-",
-            "right": {
-              "type": "Literal",
-              "value": 1,
-              "raw": "1"
-            }
-          }
-        ]
-      }
-    }
-  ],
-  "sourceType": "script"
-}
-console.log(2 - 1 - 1);
-0
 ```
 
 ## References
