@@ -11,7 +11,8 @@
     "build": "jison minus.jison minus.l -o minus.js",
     "debug": "jison minus.jison minus.l -o minus.js --debug",
     "dfa": "bison -v minus.jison; rm -f minus.tab.jison",
-    "compile-ast": "jison minus-ast.jison minus.l -o minus.js"
+    "compile-ast": "jison minus-ast.jison minus.l -o minus.js",
+    "prec": "jison prec/uminus.jison minus.l -o prec/uminus.js; prec/use-prec.js"
   },
   "keywords": [],
   "author": "Casiano Rodriguez Leon <crguezl@ull.edu.es> (https://crguezl.github.io/)",
