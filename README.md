@@ -13,7 +13,6 @@ This repo contains two examples:
 ## package.json scripts to run the examples
 
 ```
-
 ➜  hello-jison git:(master) ✗ npm run
 Lifecycle scripts included in hello-jison@1.0.0:
   test
@@ -28,6 +27,8 @@ available via `npm run-script`:
     npm run compile-ast; ./use_minus.js > ast.json; cat ast.json
   build
     jison minus.jison minus.l -o minus.js
+  loc
+    jison location/minus-error-management.jison location/minus-error-management.l -o location/minus.js
   debug
     jison minus.jison minus.l -o minus.js --debug
   dfa
