@@ -9,7 +9,7 @@
     "tojs": "npm run build-ast; ./ast2js.js > salida.js; cat salida.js",
     "build-ast": "npm run compile-ast; ./use_minus.js > ast.json; cat ast.json",
     "build": "jison minus.jison minus.l -o minus.js",
-    "loc": "jison location/minus-error-recovery.jison location/minus-error-recovery.l -o minus.js",
+    "loc": "jison location/minus-error-recovery.jison location/minus-error-recovery.l -o location/minus.js",
     "debug": "jison minus.jison minus.l -o minus.js --debug",
     "dfa": "bison -v minus.jison; rm -f minus.tab.jison",
     "compile-ast": "jison minus-ast.jison minus.l -o minus.js"

@@ -1,5 +1,6 @@
 %%
-\s     /* skip whites */;
+\s+     /* skip whites */;
 [0-9]+        return 'N';
 '-'           return '-';
-.             return 'UNEXPECTED';
+<<EOF>>       return 'EOF';
+(.|\n)+       return 'UNEXPECTED';
