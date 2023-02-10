@@ -1,3 +1,5 @@
+%left '-'
+
 %%
 es: e { return $1; }
 ;

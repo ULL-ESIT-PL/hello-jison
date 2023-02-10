@@ -1,5 +1,7 @@
 node_modules
-minus.js
 prec/uminus.js
-salida.js
-ast.json
+minus/minus.js
+ast/salida.js
+ast/ast.json
+location/minus.js
+.vscode
