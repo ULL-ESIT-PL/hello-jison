@@ -7,7 +7,7 @@ The location object has attributes:
 
 ## The grammar
 
-It is important to keep the actions in the grammar as simple as possible and isolate the code in a separated file.
+It is important to keep the actions in a grammar as simple as possible and isolate the code in a separated file.
 
 ```js
 %{
@@ -29,7 +29,7 @@ e:
 ;
 ```
 
-Errors due to unexpected character are managed by the las two rules
+Errors due to unexpected character are managed by the last two rules
 
 
 ## Lexical rules

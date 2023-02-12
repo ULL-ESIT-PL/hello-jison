@@ -3,14 +3,16 @@
 Usage:
 
 ```
-➜  hello-jison git:(master) ✗ npm run test-simple
+➜  minus git:(master) ✗ npm run test-simple
 
 > hello-jison@1.0.0 test-simple
-> npm run build; ./use_minus.js
+> npm run build; ./minus/use_minus.js
 
 
 > hello-jison@1.0.0 build
-> jison minus.jison minus.l -o minus.js
+> jison minus/minus.jison minus/minus.l -o minus/minus.js
 
-0
+[
+  0
+]
 ```
