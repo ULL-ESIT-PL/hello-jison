@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm run tojs; node ast/salida.js",
     "test-simple": "npm run build; ./minus/use_minus.js",
+    "test-mjs": "npm run build; ./minus/use_minus.mjs ./minus/input.minus",
     "tojs": "npm run build-ast; ./ast/ast2js.js | tee ast/salida.js",
     "build-ast": "npm run compile-ast; ./ast/use_minus.js > ast/ast.json; cat ast/ast.json",
     "build": "jison minus/minus.jison minus/minus.l -o minus/minus.js",

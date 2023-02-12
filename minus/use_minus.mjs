@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 import { program } from "commander";
 import { createRequire } from "module";
+// import.meta.url contains the URL of use_minus.mjs
 const require = createRequire(import.meta.url);
 const { version } = require("../package.json");
 import minus from "./minus.js";
-const fs = require('fs/promises');
+import * as fs from 'fs/promises';
 
 async function transpile(inputFile, outputFile) {
   try {
