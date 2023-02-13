@@ -2,8 +2,6 @@
 
 Install dependencies and run the tests:
 
-```bash
-
 ```
 ➜  hello-jison git:(master) cd ast
 ➜  ast git:(master) npm test
