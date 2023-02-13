@@ -1,6 +1,6 @@
 ## Simple interpreter
 
-ECMA 6 version:
+### ECMA 6 version:
 
 ``` 
 ➜  minus git:(master) npm run test-mjs
@@ -15,7 +15,7 @@ ECMA 6 version:
 [ 3, 2, 96, 4 ]
 ```
 
-CommonJS version:
+### CommonJS version:
 
 ```
 ➜  minus git:(master) ✗ npm run test-simple

@@ -1,5 +1,6 @@
 ## Grammar
 
+See Section [Precedencia y Asociatividad](https://crguezl.github.io/pl-html/node57.html#section:prioridades) of the old PL notes.
 
 ```js
 
