@@ -1,72 +1,21 @@
 # A Simple Translator from Infix minus expressions to JavaScript
 
+Install dependencies and run the tests:
+
+```bash
+
 ```
-➜  hello-jison git:(master) ✗ npm run test       
+➜  hello-jison git:(master) cd ast
+➜  ast git:(master) npm test
 
 > hello-jison@1.0.0 test
-> npm run tojs; node salida.js
+> cd ast && npx mocha test/test.mjs
 
 
-> hello-jison@1.0.0 tojs
-> npm run build-ast; ./ast2js.js > salida.js; cat salida.js
 
+  ✓ transpile(test1.calc, out1.js)
+  ✓ transpile(test2.calc, out2.js)
+  ✓ transpile(test3.calc, out3.js)
 
-> hello-jison@1.0.0 build-ast
-> npm run compile-ast; ./use_minus.js > ast.json; cat ast.json
-
-
-> hello-jison@1.0.0 compile-ast
-> jison minus-ast.jison minus.l -o minus.js
-
-{
-  "type": "Program",
-  "body": [
-    {
-      "type": "ExpressionStatement",
-      "expression": {
-        "type": "CallExpression",
-        "callee": {
-          "type": "MemberExpression",
-          "object": {
-            "type": "Identifier",
-            "name": "console"
-          },
-          "property": {
-            "type": "Identifier",
-            "name": "log"
-          },
-          "computed": false
-        },
-        "arguments": [
-          {
-            "type": "BinaryExpression",
-            "left": {
-              "type": "BinaryExpression",
-              "left": {
-                "type": "Literal",
-                "value": 2,
-                "raw": "2"
-              },
-              "operator": "-",
-              "right": {
-                "type": "Literal",
-                "value": 1,
-                "raw": "1"
-              }
-            },
-            "operator": "-",
-            "right": {
-              "type": "Literal",
-              "value": 1,
-              "raw": "1"
-            }
-          }
-        ]
-      }
-    }
-  ],
-  "sourceType": "script"
-}
-console.log(2 - 1 - 1);
-0
+  3 passing (13ms)
 ```

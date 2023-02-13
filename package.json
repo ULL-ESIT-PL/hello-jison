@@ -15,12 +15,20 @@
     "compile-ast": "jison ast/minus-ast.jison ast/minus-ast.l -o ast/minus.js",
     "clean": "rm -f ast/ast.json ast/salida.js ast/minus.js location/minus.js"
   },
-  "keywords": [ "ULL", "jison", "parser", "compiler", "language", "grammar"],
+  "keywords": [
+    "ULL",
+    "jison",
+    "parser",
+    "compiler",
+    "language",
+    "grammar"
+  ],
   "author": "Casiano Rodriguez Leon <crguezl@ull.edu.es> (https://crguezl.github.io/)",
   "license": "ISC",
   "dependencies": {
     "commander": "^10.0.0",
     "espree": "^9.3.1",
-    "jison": "^0.4.18"
+    "jison": "^0.4.18",
+    "mocha": "^10.2.0"
   }
 }
