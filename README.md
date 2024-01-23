@@ -53,6 +53,22 @@ available via `npm run-script`:
 npm i
 ```
 
+## Branches
+
+The landing branch:
+
+- master
+
+One branch per class `yearmonthday`:
+
+- 20230213
+- 20230214
+  
+Start to work from branch 
+
+- initial
+
+
 ## References
 
 * [Repo ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk)
@@ -63,3 +79,4 @@ npm i
 * <a href="https://nolanlawson.github.io/jison-debugger/" target="_blank">Jison Playground</a>
 * [idgrep.js](https://github.com/ULL-ESIT-GRADOII-PL/esprima-pegjs-jsconfeu-talk/blob/master/idgrep.js)
 * [Introducción a los Compiladores](https://ull-esit-gradoii-pl.github.io/temas/introduccion-a-pl/esprima.html) con Jison y Espree
+* Google Slides [Intro to Compilers](https://docs.google.com/presentation/d/1N8h99dXzud9HzH8XY6QCZSmATCAWXtZebuqRTiy8qMU/edit?usp=sharing) by Casiano

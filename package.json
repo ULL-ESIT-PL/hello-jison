@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "* See section [Análisis Sintáctico Ascendente en JavaScript](http://crguezl.github.io/pl-html/node43.html) * The example working at  [http://crguezl.github.io/jison-minus/](http://crguezl.github.io/jison-minus/)",
   "scripts": {
-    "test": "cd ast && npx mocha test/test.mjs",
+    "test": "npm run build-ast; cd ast && npx mocha test/test.mjs",
     "cov": "nyc npm test",
     "test-simple": "npm run build; ./minus/use_minus.js",
     "test-mjs": "npm run build; ./minus/use_minus.mjs ./minus/input.minus",

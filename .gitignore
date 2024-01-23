@@ -4,3 +4,4 @@ node_modules
 **/salida.js
 **/ast.json
 .vscode
+minus.output
