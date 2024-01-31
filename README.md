@@ -2,16 +2,98 @@
 
 This repo contains four examples:
 
+## minus folder
+
 * The first one in folder`minus` is a simple interpreter for infix arithmetic expressions with the minus operator only
   * See files `minus.jison`, `minus.l` and  `use_minus.js`
+
+## location folder
+
 * The example in folder `location`  shows how to access to the location of tokens, how to pass information from outside to an action, how to deal with lexical errors and a few tricks to improve error messages
   * See files `minus-error-management.jison`, `minus-error-management.l` and  `main.js`
   * The `err.js` file contains the error message function
+
+
+```
+➜  ast git:(master) ✗ npx jison minus-ast.jison  minus-ast.l -o minus.js
+```
+
+The file `use-minus.js` outputs the AST in JSON format:
+
+```js
+➜  ast git:(master) ✗ cat use_minus.js 
+#!/usr/bin/env node
+const p = require("./minus").parser;
+
+const t = p.parse(process.argv[2] || "2-1-1");
+console.log(JSON.stringify(t, null, 2));
+```
+
+Here is an execution example:
+
+```
+➜  ast git:(master) ✗ ./use_minus.js > ast.json; cat ast.json     
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "expression": {
+        "type": "CallExpression",
+        "callee": {
+          "type": "MemberExpression",
+          "object": {
+            "type": "Identifier",
+            "name": "console"
+          },
+          "property": {
+            "type": "Identifier",
+            "name": "log"
+          },
+          "computed": false
+        },
+        "arguments": [
+          {
+            "type": "BinaryExpression",
+            "left": {
+              "type": "BinaryExpression",
+              "left": {
+                "type": "Literal",
+                "value": 2,
+                "raw": "2"
+              },
+              "operator": "-",
+              "right": {
+                "type": "Literal",
+                "value": 1,
+                "raw": "1"
+              }
+            },
+            "operator": "-",
+            "right": {
+              "type": "Literal",
+              "value": 1,
+              "raw": "1"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "sourceType": "script"
+}
+```
+
+## ast folder
+
 * The example in folder `ast` is a translator from infix arithmetic expressions to JavaScript
   * `minus-ast.jison` builds a Espree compatible AST using `minus.l` and the helpers in `ast-build.js`
   * Check <a href="https://astexplorer.net/" target="_blank">astexplorer.net demo</a> to explore the shape of the ASTs
   * The lexical analyzer `minus.l` is used by both examples
-* The `ast-*.json` files contain examples of Espree ASTs
+* The `ast.json` filescontain examples of Espree ASTs for `console.log(2-1-1)`
+
+## prec folder
+
 * The example in folder `prec` illustrates the use of the `%prec` directive to resolve conflicts
   * See files `prec.jison`, `prec.l` and  `use_prec.js`
   * The `prec-*.json` files contain examples of Espree ASTs
