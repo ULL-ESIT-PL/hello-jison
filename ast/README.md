@@ -62,9 +62,31 @@ Options:
 console.log(4 - 2 - 1);
 ```
 
+## minus-ast.jison
+
+The file [minus-ast.jison](minus-ast.jison) is a simple parser from infix minus expressions `expr` producing a espree compatible AST for the statement `console.log(expr)`.  
+
+```js
+%{
+const { buildRoot, buildBinaryExpression, buildLiteral } = require('./ast-build');
+%}
+
+%left '-'
+%%
+es: e { return buildRoot($1); }
+;
+
+e: 
+    e '-' e  { $$ = buildBinaryExpression($1, '-', $3)  }
+  | N        { $$ = buildLiteral($1); }
+;
+```
+
 ## useminus.js
 
-The script [use_minus.js](use_minus.js) is a simple parser from infix minus expressions producing a espree compatible AST:
+The script [use_minus.js](use_minus.js) is a simple parser from infix minus expressions `expr` producing a espree compatible AST for the statement `console.log(expr)`.  That is, we  
+wrap the input expression with a `console.log` statement.
+
 
 ```
 ast git:(master) ./use_minus.js "2-1-1" > ast.json
@@ -74,8 +96,7 @@ See the file [ast.json](ast.json) for the output of the command above.
 
 ## ast2js.js
 
-The script [ast2js.js](ast2js.js) uses [escodegen.generate](https://github.com/estools/escodegen/wiki/API) to traverse a espree compatible AST producing as output the corresponding JavaScript that 
-wraps the JS expression of the AST in a `console.log` statement:
+The script [ast2js.js](ast2js.js) uses [escodegen.generate](https://github.com/estools/escodegen/wiki/API) to traverse a espree compatible AST producing as output the corresponding JavaScript:
 
 ```
 ➜  ast git:(master) ✗ ./ast2js.js './ast.json'
