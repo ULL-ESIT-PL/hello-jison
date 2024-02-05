@@ -74,9 +74,75 @@ See the file [ast.json](ast.json) for the output of the command above.
 
 ## ast2js.js
 
-The script [ast2js.js](ast2js.js) uses [escodegen.generate](https://github.com/estools/escodegen/wiki/API) to traverse a espree compatible AST producing as output the corresponding JavaScript:
+The script [ast2js.js](ast2js.js) uses [escodegen.generate](https://github.com/estools/escodegen/wiki/API) to traverse a espree compatible AST producing as output the corresponding JavaScript that 
+wraps the JS expression of the AST in a `console.log` statement:
 
 ```
 ➜  ast git:(master) ✗ ./ast2js.js './ast.json'
 console.log(2 - 1 - 1);
+```
+
+## ast-build.js
+
+### buildLiteral
+
+It is simple to build the tree for a literal:
+
+```js
+function buildLiteral(value) {
+  return {
+    type: "Literal",
+    value: Number(value),
+    raw: value,
+  };
+}
+```
+
+### buildBinaryExpression
+
+To build the tree for a binary expression, we build the left and right children and then the binary expression itself:
+
+```js
+function buildBinaryExpression(left, op, right) {
+  return {
+    type: "BinaryExpression",
+    left: left,
+    operator: op,
+    right: right,
+  };
+}
+```
+
+### buildRoot
+
+The function `buildRoot` in [ast-build.js](ast-build.js) wraps the JS expression of the AST in a `console.log` statement.:
+
+```js
+function buildRoot(child) {
+  return {
+    type: "Program",
+    body: [
+      {
+        type: "ExpressionStatement",
+        expression: {
+          type: "CallExpression",
+          callee: {
+            type: "MemberExpression",
+            object: {
+              type: "Identifier",
+              name: "console",
+            },
+            property: {
+              type: "Identifier",
+              name: "log",
+            },
+            computed: false,
+          },
+          arguments: [child],
+        },
+      },
+    ],
+    sourceType: "script",
+  };
+}
 ```
