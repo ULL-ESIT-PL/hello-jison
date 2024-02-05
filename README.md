@@ -92,6 +92,8 @@ Here is an execution example:
   * The lexical analyzer `minus.l` is used by both examples
 * The `ast.json` filescontain examples of Espree ASTs for `console.log(2-1-1)`
 
+More details in [ast/README.md](ast/README.md)
+
 ## prec folder
 
 * The example in folder `prec` illustrates the use of the `%prec` directive to resolve conflicts
