@@ -64,7 +64,7 @@ console.log(4 - 2 - 1);
 
 ## useminus.js
 
-The script [useminus.js](useminus.js) is a simple parser from infix minus expressions producing a espree compatible AST:
+The script [use_minus.js](use_minus.js) is a simple parser from infix minus expressions producing a espree compatible AST:
 
 ```
 ast git:(master) ./use_minus.js "2-1-1" > ast.json

@@ -4,7 +4,7 @@ This repo contains four examples:
 
 ## minus folder
 
-* The first one in folder`minus` is a simple interpreter for infix arithmetic expressions with the minus operator only
+* The first one in folder `minus` is a simple interpreter for infix arithmetic expressions with the minus operator only
   * See files `minus.jison`, `minus.l` and  `use_minus.js`
 
 ## location folder
