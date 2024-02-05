@@ -61,3 +61,22 @@ Options:
 ➜  ast git:(master) ✗ ./calc2js.mjs test/data/test1.calc    
 console.log(4 - 2 - 1);
 ```
+
+## useminus.js
+
+The script [useminus.js](useminus.js) is a simple parser from infix minus expressions producing a espree compatible AST:
+
+```
+ast git:(master) ./use_minus.js "2-1-1" > ast.json
+```
+
+See the file [ast.json](ast.json) for the output of the command above.
+
+## ast2js.js
+
+The script [ast2js.js](ast2js.js) uses [escodegen.generate](https://github.com/estools/escodegen/wiki/API) to traverse a espree compatible AST producing as output the corresponding JavaScript:
+
+```
+➜  ast git:(master) ✗ ./ast2js.js './ast.json'
+console.log(2 - 1 - 1);
+```
