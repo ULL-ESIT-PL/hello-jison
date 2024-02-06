@@ -3,7 +3,11 @@
 In a given rule, several constructs can be used to access the locations of the elements being matched. The location of the nth component of the right hand side is `@n`, while the location of the left hand side grouping is `@$`.
 
 The location object has attributes: 
-`first_line`, `first_column`, `last_line`, `last_column`
+
+- `first_line`, 
+- `first_column`, 
+- `last_line`, 
+- `last_column`
 
 ## The grammar
 
@@ -34,7 +38,7 @@ Errors due to unexpected character are managed by the last two rules
 
 ## Lexical rules
 
-We create a token `UNEXPECTED` to catch the unexpected characters. It abosorbs all the characters until the end.
+We create a token `UNEXPECTED` to catch the unexpected characters. It absorbs all the characters until the end.
 
 ```js
 %%

@@ -12,6 +12,6 @@ e:
     e '-' e        { $$ = $1 - $3; }
   | NUMBER         { $$ = Number($1); }
   /* error management rules */
-  | UNEXPECTED { errorMsg({ rule: 'UNEXPECTED', token: $1, ...@1 }) } 
-  | e UNEXPECTED { errorMsg({ rule: 'e UNEXPECTED', token: $2, ...@2 }) } // 4*2
+  | UNEXPECTED { $$ = 0; errorMsg({ rule: 'UNEXPECTED', token: $1, ...@1 }) } 
+  | e UNEXPECTED { $$ = $1; errorMsg({ rule: 'e UNEXPECTED', token: $2, ...@2 }) } // 4*2
 ;

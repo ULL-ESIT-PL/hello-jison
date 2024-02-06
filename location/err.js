@@ -7,5 +7,6 @@ module.exports = function errorMsg({rule, token, first_line, first_column, last_
   console.error(
     `Unexpected "${prefix}" at line ${first_line} column ${first_column} of input: "${errorMsg.input}"`);
   if (rule) console.error(`Rule: ${rule}`);
-  process.exit(1);
+  return 0;
+  //process.exit(1);
 }
