@@ -136,6 +136,8 @@ e -> e - e hi!
 
 ## .Parser
 
+The `Parser` property is a constructor that can be used to create a new parser object.
+
 ```js
 // ...
 function Parser() {
@@ -145,7 +147,7 @@ Parser.prototype = parser;
 parser.Parser = Parser;
 ```
 
-Her is an example with the same code above:
+Here is an example with the same [code minus-yy.jison](minus-yy.jison) above:
 
 ```js
 minus git:(20250205) ✗ node 
