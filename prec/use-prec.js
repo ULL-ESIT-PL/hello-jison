@@ -1,4 +1,6 @@
 #!/usr/bin/env node
 const p = require("./uminus").parser;
 
-p.parse(process.argv[2] || "-2-3");
+let input = process.argv[2] || "-2-3";
+console.log("Input:", input);
+p.parse(input);
