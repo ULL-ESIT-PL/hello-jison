@@ -9,7 +9,7 @@ module.exports = async function transpile(inputFile, outputFile) {
     ast = p.parse(input);
   } catch (e) {
     console.error(e.message);
-    return;
+    return null;
   }
   const output = escodegen.generate(ast);
   if (outputFile === undefined) {
