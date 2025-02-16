@@ -3,11 +3,12 @@
 \s+         {/* skip whitespace */}
 [0-9]+      {return 'NAT';}
 "+"         {return '+';}
+<<EOF>>     {return 'EOF';} 
 /lex
 
 %%
 S: 
-      E       { return yy.queue }
+      E EOF   { return yy.queue }
     ;
 E
     : E '+' T { yy.queue.unshift('E=>E+T')}
