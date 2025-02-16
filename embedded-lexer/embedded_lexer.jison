@@ -11,11 +11,11 @@ S:
       E EOF   { return $E }
     ;
 E
-    : E '+' T { $$ = {type: yy.E, children: [$E1, { type: yy["+"], value: '+', loc: @1}, $T]} }
-    | T       { $$ = {type: yy.E, children: [$T]} }
+    : E '+' T { $$ = {type: yy.E, rightside: [$E1, { type: yy["+"], value: '+', loc: @1}, $T]} }
+    | T       { $$ = {type: yy.E, rightside: [$T]} }
     ;
 
 T
-    : NAT     { $$ = { type: yy.T, children: [{ type: yy.NAT, value: $NAT, loc: @NAT}] } }
+    : NAT     { $$ = { type: yy.T, rightside: [{ type: yy.NAT, value: $NAT, loc: @NAT}] } }
     ;
 

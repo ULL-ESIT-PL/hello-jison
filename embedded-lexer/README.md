@@ -8,21 +8,24 @@
 Omitting the fields `loc` and `value`:
 
 ```bash
-➜  embedded-lexer git:(master) ✗ npx jison embedded_lexer.jison; ./use.js 2+3 loc value
+➜  embedded-lexer git:(master) npx jison embedded_lexer.jison; ./use.js 2+3 loc 
 input: 2+3
 Parse Tree:
 
 type: "Expression"
-children:
+rightside:
   - type: "Expression"
-    children:
+    rightside:
       - type: "Term"
-        children:
+        rightside:
           - type: "Number"
+            value: "2"
   - type: "Plus"
+    value: "+"
   - type: "Term"
-    children:
+    rightside:
       - type: "Number"
+        value: "3"
 ```
 
 An example with an error:
@@ -39,22 +42,22 @@ Expecting 'NAT', got 'EOF'
 Example showing values:
 
 ```bash
-➜  embedded-lexer git:(master) ✗ npx jison embedded_lexer.jison; ./use.js 2+3 loc      
+➜  embedded-lexer git:(master) ✗  npx jison embedded_lexer.jison; ./use.js 2+3 loc      
 input: 2+3
 Parse Tree:
 
 type: "Expression"
-children:
+rightside:
   - type: "Expression"
-    children:
+    rightside:
       - type: "Term"
-        children:
+        rightside:
           - type: "Number"
             value: "2"
   - type: "Plus"
     value: "+"
   - type: "Term"
-    children:
+    rightside:
       - type: "Number"
         value: "3"
 ```
