@@ -93,7 +93,7 @@ case 3:
  this.$ = { type: yy.E, children: [$$[$0]]} 
 break;
 case 4:
- this.$ = { type: yy.T, children: { type: yy.NAT, value: $$[$0], loc: _$[$0]} } 
+ this.$ = { type: yy.T, children: [{ type: yy.NAT, value: $$[$0], loc: _$[$0]}] } 
 break;
 }
 },

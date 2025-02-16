@@ -16,6 +16,6 @@ E
     ;
 
 T
-    : NAT     { $$ = { type: yy.T, children: { type: yy.NAT, value: $NAT, loc: @NAT} } }
+    : NAT     { $$ = { type: yy.T, children: [{ type: yy.NAT, value: $NAT, loc: @NAT}] } }
     ;
 

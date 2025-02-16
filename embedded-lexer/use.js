@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-const util = require('util');
 const p = require("./embedded_lexer").parser;
 
 let input = process.argv[2] || "2+1+1";
