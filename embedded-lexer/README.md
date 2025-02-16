@@ -6,8 +6,8 @@
 ## Usage
 
 ```bash
-➜  embedded-lexer git:(master) npx jison embedded_lexer.jison; ./use.js 2+1  
-input: 2+1
+➜  embedded-lexer git:(master) ✗ npx jison embedded_lexer.jison; ./use.js 2+3 loc value
+input: 2+3
 Parse Tree:
 
 type: "Expression"
@@ -17,28 +17,10 @@ children:
       - type: "Term"
         children:
           - type: "Number"
-            value: "2"
-            loc:
-              first_line: 1
-              last_line: 1
-              first_column: 0
-              last_column: 1
   - type: "Plus"
-    value: "+"
-    loc:
-      first_line: 1
-      last_line: 1
-      first_column: 0
-      last_column: 1
   - type: "Term"
     children:
       - type: "Number"
-        value: "1"
-        loc:
-          first_line: 1
-          last_line: 1
-          first_column: 2
-          last_column: 3
 ```
 
 An example with an error:
@@ -52,6 +34,28 @@ Parse error on line 1:
 Expecting 'NAT', got 'EOF'
 ```
 
+Example showing values:
+
+```bash
+➜  embedded-lexer git:(master) ✗ npx jison embedded_lexer.jison; ./use.js 2+3 loc      
+input: 2+3
+Parse Tree:
+
+type: "Expression"
+children:
+  - type: "Expression"
+    children:
+      - type: "Term"
+        children:
+          - type: "Number"
+            value: "2"
+  - type: "Plus"
+    value: "+"
+  - type: "Term"
+    children:
+      - type: "Number"
+        value: "3"
+```
 
 ## See also
 
