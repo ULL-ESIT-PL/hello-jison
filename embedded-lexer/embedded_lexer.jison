@@ -1,7 +1,3 @@
-%{
-let queue = [];
-%}
-
 %lex
 %%
 \s+         {/* skip whitespace */}
@@ -11,14 +7,14 @@ let queue = [];
 
 %%
 S: 
-      E       { return queue }
+      E       { return yy.queue }
     ;
 E
-    : E '+' T { queue.unshift('E=>E+T')}
-    | T       { queue.unshift('E=>T')}
+    : E '+' T { yy.queue.unshift('E=>E+T')}
+    | T       { yy.queue.unshift('E=>T')}
     ;
 
 T
-    : NAT     { queue.unshift('T=>NAT')}
+    : NAT     { yy.queue.unshift('T=>NAT')}
     ;
 
