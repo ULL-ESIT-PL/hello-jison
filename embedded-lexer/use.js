@@ -2,10 +2,12 @@
 const util = require('util');
 const p = require("./embedded_lexer").parser;
 
-p.yy.queue = [];
+let input = process.argv[2] || "2+1+1";
 try {
-  const t = p.parse(process.argv[2] || "2+1+1");
-  console.log(JSON.stringify(t, null, 2)); 
+  console.log("input:", input);
+  p.yy.queue = [];
+  const t = p.parse(process.argv[2] || input);
+  console.log("Derivation:\n", JSON.stringify(t, null, 2)); 
 } catch (e) {
   console.error(e.message);
 }

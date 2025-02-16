@@ -11,11 +11,11 @@ S:
       E EOF   { return yy.queue }
     ;
 E
-    : E '+' T { yy.queue.unshift('E=>E+T')}
+    : E '+' T { yy.queue.unshift(`E=>E+T ('+' at col ${@2.first_column})`)}
     | T       { yy.queue.unshift('E=>T')}
     ;
 
 T
-    : NAT     { yy.queue.unshift('T=>NAT')}
+    : NAT     { yy.queue.unshift(`T=>NAT(${$NAT} at col ${@NAT.first_column})`)}
     ;
 
