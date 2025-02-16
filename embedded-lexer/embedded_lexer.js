@@ -84,16 +84,16 @@ performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* actio
 var $0 = $$.length - 1;
 switch (yystate) {
 case 1:
- return yy.queue 
+ return $$[$0-1] 
 break;
 case 2:
- yy.queue.unshift(`E=>E+T ('+' at col ${_$[$0-1].first_column})`)
+ this.$ = {type: yy.E, children: [$$[$0-2], { type: yy["+"], value: '+', loc: _$[$0-2]}, $$[$0]]} 
 break;
 case 3:
- yy.queue.unshift('E=>T')
+ this.$ = { type: yy.E, children: [$$[$0]]} 
 break;
 case 4:
- yy.queue.unshift(`T=>NAT(${$$[$0]} at col ${_$[$0].first_column})`)
+ this.$ = { type: yy.T, children: { type: yy.NAT, value: $$[$0], loc: _$[$0]} } 
 break;
 }
 },

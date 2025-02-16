@@ -6,21 +6,91 @@
 ## Usage
 
 ```bash
-➜  embedded-lexer git:(master) npx jison embedded_lexer.jison; ./use.js
-[
-  "E=>E+T",
-  "T=>NAT",
-  "E=>E+T",
-  "T=>NAT",
-  "E=>T",
-  "T=>NAT"
-]
+➜  embedded-lexer git:(develop) ✗ npx jison embedded_lexer.jison; ./use.js                  
+input: 2+1+1
+Parse Tree:
+
+{
+  "type": "Expression",
+  "children": [
+    {
+      "type": "Expression",
+      "children": [
+        {
+          "type": "Expression",
+          "children": [
+            {
+              "type": "Term",
+              "children": {
+                "type": "Number",
+                "value": "2",
+                "loc": {
+                  "first_line": 1,
+                  "last_line": 1,
+                  "first_column": 0,
+                  "last_column": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "Plus",
+          "value": "+",
+          "loc": {
+            "first_line": 1,
+            "last_line": 1,
+            "first_column": 0,
+            "last_column": 1
+          }
+        },
+        {
+          "type": "Term",
+          "children": {
+            "type": "Number",
+            "value": "1",
+            "loc": {
+              "first_line": 1,
+              "last_line": 1,
+              "first_column": 2,
+              "last_column": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "Plus",
+      "value": "+",
+      "loc": {
+        "first_line": 1,
+        "last_line": 1,
+        "first_column": 0,
+        "last_column": 3
+      }
+    },
+    {
+      "type": "Term",
+      "children": {
+        "type": "Number",
+        "value": "1",
+        "loc": {
+          "first_line": 1,
+          "last_line": 1,
+          "first_column": 4,
+          "last_column": 5
+        }
+      }
+    }
+  ]
+}
 ```
 
 An example with an error:
 
 ```bash
-➜  embedded-lexer git:(master) ✗ npx jison embedded_lexer.jison; ./use.js 2+
+➜  embedded-lexer git:(develop) ✗ npx jison embedded_lexer.jison; ./use.js 2+
+input: 2+
 Parse error on line 1:
 2+
 --^

@@ -8,14 +8,14 @@
 
 %%
 S: 
-      E EOF   { return yy.queue }
+      E EOF   { return $E }
     ;
 E
-    : E '+' T { yy.queue.unshift(`E=>E+T ('+' at col ${@2.first_column})`)}
-    | T       { yy.queue.unshift('E=>T')}
+    : E '+' T { $$ = {type: yy.E, children: [$E1, { type: yy["+"], value: '+', loc: @1}, $T]} }
+    | T       { $$ = { type: yy.E, children: [$T]} }
     ;
 
 T
-    : NAT     { yy.queue.unshift(`T=>NAT(${$NAT} at col ${@NAT.first_column})`)}
+    : NAT     { $$ = { type: yy.T, children: { type: yy.NAT, value: $NAT, loc: @NAT} } }
     ;
 
