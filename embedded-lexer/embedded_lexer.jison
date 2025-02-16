@@ -1,5 +1,8 @@
-%lex
+%{
+let queue = [];
+%}
 
+%lex
 %%
 \s+         {/* skip whitespace */}
 [0-9]+      {return 'NAT';}
@@ -7,13 +10,15 @@
 /lex
 
 %%
-
+S: 
+      E       { return queue }
+    ;
 E
-    : E '+' T
-    | T
+    : E '+' T { queue.unshift('E=>E+T')}
+    | T       { queue.unshift('E=>T')}
     ;
 
 T
-    : NAT
+    : NAT     { queue.unshift('T=>NAT')}
     ;
 
