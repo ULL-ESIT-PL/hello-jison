@@ -6,6 +6,13 @@
 ## Usage
 
 ```bash
-npx jison embedded_lexer.jison
-node use.js '2 + 3 + 4'
+➜  embedded-lexer git:(master) npx jison embedded_lexer.jison; ./use.js
+[
+  "E=>E+T",
+  "T=>NAT",
+  "E=>E+T",
+  "T=>NAT",
+  "E=>T",
+  "T=>NAT"
+]
 ```
