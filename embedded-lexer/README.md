@@ -5,6 +5,8 @@
 
 ## Usage
 
+Omitting the fields `loc` and `value`:
+
 ```bash
 ➜  embedded-lexer git:(master) ✗ npx jison embedded_lexer.jison; ./use.js 2+3 loc value
 input: 2+3
