@@ -1,6 +1,6 @@
 # Example of Jison program with embedded lexer
 
-* [embedded-lexer.jison](embedded-lexer.jison)
+* [embedded_lexer.jison](embedded_lexer.jison)
 * [use.js](use.js)
 
 ## Usage
