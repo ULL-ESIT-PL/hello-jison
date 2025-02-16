@@ -90,7 +90,7 @@ case 2:
  this.$ = {type: yy.E, children: [$$[$0-2], { type: yy["+"], value: '+', loc: _$[$0-2]}, $$[$0]]} 
 break;
 case 3:
- this.$ = { type: yy.E, children: [$$[$0]]} 
+ this.$ = {type: yy.E, children: [$$[$0]]} 
 break;
 case 4:
  this.$ = { type: yy.T, children: [{ type: yy.NAT, value: $$[$0], loc: _$[$0]}] } 
