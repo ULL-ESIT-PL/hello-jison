@@ -12,7 +12,7 @@ S:
     ;
 E
     : E '+' T { $$ = {type: yy.E, children: [$E1, { type: yy["+"], value: '+', loc: @1}, $T]} }
-    | T       { $$ = { type: yy.E, children: [$T]} }
+    | T       { $$ = {type: yy.E, children: [$T]} }
     ;
 
 T
