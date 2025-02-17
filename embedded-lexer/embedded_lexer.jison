@@ -11,7 +11,7 @@ S:
       E EOF   { return $E }
     ;
 E
-    : E '+' T { $$ = {type: yy.E, rightside: [$E1, { type: yy["+"], value: '+', loc: @1}, $T]} }
+    : E '+' T { $$ = {type: yy.E, rightside: [$E, { type: yy["+"], value: '+', loc: @1}, $T]} }
     | T       { $$ = {type: yy.E, rightside: [$T]} }
     ;
 
