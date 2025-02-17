@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 const YAML = require('json-to-pretty-yaml');
-const p = require("./embedded_lexer").parser;
+const parser = require("./embedded_lexer").parser;
+parser.yy = {E: "Expression", T: "Term", NAT: "Number", "+": "Plus"};
+
 // Remaining arguments are keys to omit from the output
 let omit = new Set(process.argv.slice(3)); // Example: use.js 2+1 loc value
 
@@ -14,11 +16,10 @@ function yaml2string(t, replace) {
   return YAML.stringify(result);
 }
 
-let input = process.argv[2] || "2+1";
 try {
+  let input = process.argv[2] || "2+1";
   console.error("input:", input);
-  p.yy = {E: "Expression", T: "Term", NAT: "Number", "+": "Plus"};
-  const t = p.parse(input);
+  const t = parser.parse(input);
   console.error("Parse Tree:\n")
   console.log(yaml2string(t, replace));
 } catch (e) {
