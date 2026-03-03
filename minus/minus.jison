@@ -1,3 +1,5 @@
+// compile it with: npx jison minus.jison minus.l -o minus.js
+// ./use_minus.js '8-3-1, 9-4'
 %left '-'
 
 %%
@@ -9,6 +11,6 @@ le: le ',' e  { $$ = $1.concat($3); }
 ;
 
 e: 
-    e '-' e   { $$ = $1 - $3; }
+    e\[left] '-' e\[right]   { $$ = $left - $right; }
   | N         { $$ = Number($1); }
 ;
