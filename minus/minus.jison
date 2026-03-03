@@ -6,11 +6,11 @@
 es: le EOF { return $1; }
 ;
 
-le: le ',' e  { $$ = $1.concat($3); }
+le: le ',' e  { $$ = $le.concat($e); }
   | e         { $$ = [$1]; }
 ;
 
 e: 
-    e\[left] '-' e\[right]   { $$ = $left - $right; }
+    e[left] '-' e[right]   { /* illustrates alias usage */ $$ = $left - $right; }
   | N         { $$ = Number($1); }
 ;
