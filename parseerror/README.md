@@ -36,10 +36,17 @@ E
     ;
 ```
 
-Here  follows the output of running the example with an input that causes a parse error:
+
+Compile the grammar:
+
 ```
 ➜  parseerror git:(master) ✗ npx jison parseError.jison
 JISON output for module [parseError] has been written to file: parseError.js
+```
+
+Here  follows the output of running the example with an input that causes a parse error:
+
+```
 ➜  parseerror git:(master) ✗ ./use.js '2+'
 input: 2+
 ******************msg********************
