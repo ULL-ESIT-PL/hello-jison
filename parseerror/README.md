@@ -1,6 +1,6 @@
 # Example of Jison program with customized Error management
 
-See [use.js](./use.js) for an example of how to use the custom error management in a Jison parser. 
+See [use.js](./use.js) and [parseError.jison](./parseError.jison) for an example of how to use the custom error management in a Jison parser. 
 
 The example shows to attach a custom `parseError` function to the parser as also other properties that can be used inside the 
 semantic actions of the grammar. 
