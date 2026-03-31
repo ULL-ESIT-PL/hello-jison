@@ -5,7 +5,7 @@
 %left UNEXPECTED
 %left '-'
 %%
-es: e <<EOF>> { return $1; }
+es: e EOF { return $1; }
 ;
 
 e: 
