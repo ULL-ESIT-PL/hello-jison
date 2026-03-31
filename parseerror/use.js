@@ -18,9 +18,6 @@ parser.yy.parseError = function(msg, hash) {
   process.exit(1);
 }
 
-// Remaining arguments are keys to omit from the output
-let omit = new Set(process.argv.slice(3)); // Example: use.js 2+1 loc value
-
 try {
   let input = process.argv[2] || "2+";
   console.error("input:", input);
