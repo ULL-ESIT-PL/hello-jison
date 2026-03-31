@@ -27,7 +27,16 @@ parser.yy.parseError = function(msg, hash) {
 }
 ```
 
+All the attributes in the `yy` property of the parser are available in the semantic actions of the grammar:
 
+```js
+E
+    : E '+' T { $$ = {type: yy.E, rightside: [$E, { type: yy["+"], value: '+', loc: @1}, $T]} }
+    | T       { $$ = {type: yy.E, rightside: [$T]} }
+    ;
+```
+
+Here  follows the output of running the example with an input that causes a parse error:
 ```
 ➜  parseerror git:(master) ✗ npx jison parseError.jison
 JISON output for module [parseError] has been written to file: parseError.js
