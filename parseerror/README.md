@@ -1,5 +1,33 @@
 # Example of Jison program with customized Error management
 
+See [use.js](./use.js) for an example of how to use the custom error management in a Jison parser. 
+
+The example shows to attach a custom `parseError` function to the parser as also other properties that can be used inside the 
+semantic actions of the grammar. 
+
+
+```js 
+const parser = require("./parseError").parser;
+parser.yy = {
+    E: "Expression", 
+    T: "Term", 
+    NAT: "Number", 
+    "+": "Plus"
+};
+parser.yy.parseError = function(msg, hash) {
+  console.error("******************msg********************");
+  console.log(msg);
+  console.error("******************hash.errStr********************");
+  console.log(hash.errStr);
+  console.error("******************hash.loc********************");
+  console.error(hash.loc);
+  console.error("******************hash.expected********************");
+  console.error(hash.expected);
+  process.exit(1);
+}
+```
+
+
 ```
 ➜  parseerror git:(master) ✗ npx jison parseError.jison
 JISON output for module [parseError] has been written to file: parseError.js
